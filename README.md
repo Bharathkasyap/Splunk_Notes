@@ -57,8 +57,9 @@ Exam Tips:
 📌 Understand each Splunk component and its role.
 📌 Know the data flow and difference between UF, Indexer, and SH.
 📌 Remember where parsing, indexing, and searching occur.
-```
+
 </details>
+
 <details>
 <summary>📘 2. Navigating the Splunk Interface</summary>
 
@@ -106,8 +107,10 @@ Exam Tips:
 📌 Know what each UI panel is used for.
 📌 Understand when to use Fast vs. Smart vs. Verbose search modes.
 📌 The Time Picker greatly affects results — avoid forgetting to check it!
-```
+
 </details>
+
+
 <details>
 <summary>📘 3. Time Ranges in Splunk</summary>
 
@@ -159,8 +162,10 @@ Exam Tips:
 📌 Set the right time range before running queries.
 📌 Know real-time vs. historical tradeoffs.
 📌 Understand time modifiers (`earliest`, `latest`).
-```
+
 </details>
+
+
 <details>
 <summary>📘 4. SPL Syntax and Search Pipeline</summary>
 
@@ -213,7 +218,7 @@ Exam Tips:
 📌 SPL syntax is case-sensitive.
 📌 Don’t forget the `|` between commands.
 📌 Understand the role of each command type in the pipeline.
-```
+
 </details>
 
 
