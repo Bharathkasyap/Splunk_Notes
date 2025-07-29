@@ -957,4 +957,323 @@ C. Displays selected fields in column format
 ```
 
 </details>
+61. What does the `dc()` function do in Splunk?
+```
+A. Deletes content
+B. Displays count
+C. Distinct count of values
+D. Draw chart
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Distinct count of values 
+```
+
+</details>
+
+62. Which command removes duplicate events based on a field?
+```
+A. sort
+B. dedup
+C. filter
+D. top
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. dedup 
+```
+
+</details>
+
+63. What is a key difference between reports and alerts?
+```
+A. Alerts support visualization
+B. Reports are interactive
+C. Alerts can be triggered
+D. Reports can only be emailed
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Alerts can be triggered 
+```
+
+</details>
+
+64. How is a Splunk 'tag' typically used?
+```
+A. Join datasets
+B. Label field values
+C. Create alerts
+D. Configure indexes
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Label field values 
+```
+
+</details>
+
+65. Which search mode balances performance and field discovery?
+```
+A. Fast
+B. Smart
+C. Verbose
+D. Extended
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Smart 
+```
+
+</details>
+
+66. Which function returns the total of a numeric field?
+```
+A. dc()
+B. avg()
+C. sum()
+D. eval()
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. sum() 
+```
+
+</details>
+
+67. What is the result of the `sort - _time` command?
+```
+A. Random sort
+B. Ascending by time
+C. Descending by time
+D. Oldest events first
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Descending by time 
+```
+
+</details>
+
+68. Which UI element shows extracted fields in search results?
+```
+A. Time Picker
+B. Fields Sidebar
+C. Report Builder
+D. Event Viewer
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Fields Sidebar 
+```
+
+</details>
+
+69. Which command is used to match field values to a CSV?
+```
+A. outputlookup
+B. rex
+C. lookup
+D. join
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. lookup 
+```
+
+</details>
+
+70. What is required for the `timechart` command to work?
+```
+A. Field alias
+B. Indexed field
+C. Field `_time`
+D. JSON log
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Field `_time` 
+```
+
+</details>
+
+71. What is the function of the `append` command?
+```
+A. Rename fields
+B. Remove NULLs
+C. Combine search results
+D. Add rows to lookup
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Combine search results 
+```
+
+</details>
+
+72. Which command is used to create new fields?
+```
+A. dedup
+B. rex
+C. eval
+D. join
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. eval 
+```
+
+</details>
+
+73. Which search command lets you discover top N values for a field?
+```
+A. sort
+B. table
+C. top
+D. eval
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. top 
+```
+
+</details>
+
+74. How do you view the raw logs in Splunk UI?
+```
+A. Chart view
+B. Events tab
+C. Dashboard panel
+D. Report tab
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Events tab 
+```
+
+</details>
+
+75. Which field tells Splunk what type of data it is processing?
+```
+A. source
+B. host
+C. sourcetype
+D. index
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. sourcetype 
+```
+
+</details>
+
+76. How are permissions managed for Knowledge Objects?
+```
+A. Via Linux OS
+B. Settings > Permissions
+C. Stored in alert.conf
+D. Cannot be set
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Settings > Permissions 
+```
+
+</details>
+
+77. Which feature enriches logs with external location data?
+```
+A. Transaction
+B. Lookup
+C. Stats
+D. Event Type
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Lookup 
+```
+
+</details>
+
+78. Which eval function provides multiple conditional checks?
+```
+A. if()
+B. case()
+C. switch()
+D. cond()
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. case() 
+```
+
+</details>
+
+79. What is the default index if none is specified?
+```
+A. system
+B. main
+C. default
+D. audit
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. main 
+```
+
+</details>
+
+80. Which command would you use to format results into column display?
+```
+A. fields
+B. table
+C. top
+D. eval
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. table 
+```
+
+</details>
 
