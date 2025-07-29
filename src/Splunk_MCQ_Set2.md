@@ -638,3 +638,324 @@ A. fields - unwanted_field
 ```
 
 </details>
+
+141. Which SPL filters out events where the status field is 200?
+```
+A. search status!=200
+B. eval status!=200
+C. stats by status=200
+D. where status!=200
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. search status!=200 
+```
+
+</details>
+
+142. What is the function of the `fillnull` command?
+```
+A. Replaces NULL values with default
+B. Deletes NULL rows
+C. Fills missing source values
+D. Creates field aliases
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Replaces NULL values with default 
+```
+
+</details>
+
+143. Which SPL generates a single row per user showing total and distinct IPs?
+```
+A. stats count, dc(src_ip) by user
+B. table user, src_ip
+C. top user by src_ip
+D. dedup user
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. stats count, dc(src_ip) by user 
+```
+
+</details>
+
+144. What would `dedup user` do in a result set?
+```
+A. Keep first occurrence of each user
+B. Remove all duplicate logs
+C. Sort by user
+D. Filter errors
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Keep first occurrence of each user 
+```
+
+</details>
+
+145. How to rename a field inline while keeping both old and new names?
+```
+A. eval newfield=oldfield
+B. rename oldfield AS newfield
+C. fields oldfield, newfield
+D. alias oldfield AS newfield
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. eval newfield=oldfield 
+```
+
+</details>
+
+146. Which SPL query would best identify the first login attempt per user?
+```
+A. sort _time | dedup user
+B. stats by user
+C. transaction first login
+D. eval user_login
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. sort _time | dedup user 
+```
+
+</details>
+
+147. What does `stats count(eval(status=404)) AS not_found` return?
+```
+A. Number of 404s as 'not_found'
+B. List of users
+C. Table with status field
+D. Percentage of failures
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Number of 404s as 'not_found' 
+```
+
+</details>
+
+148. Which command helps to extract nested values from JSON logs?
+```
+A. spath
+B. rex
+C. join
+D. table
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. spath 
+```
+
+</details>
+
+149. What does `rex field=_raw "user=(?<username>\w+)"` do?
+```
+A. Extract username field from raw logs
+B. Remove raw events
+C. Filter only usernames
+D. Add field to lookup
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Extract username field from raw logs 
+```
+
+</details>
+
+150. Which SPL returns number of events per host per day?
+```
+A. timechart span=1d count by host
+B. chart count by host per day
+C. stats by host | bin _time
+D. top host | daily
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. timechart span=1d count by host 
+```
+
+</details>
+
+151. Which command can be used to create custom conditions like status range?
+```
+A. eval
+B. where
+C. sort
+D. fillnull
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. eval 
+```
+
+</details>
+
+152. What is the effect of `search login error | top user`?
+```
+A. Shows top users with login error
+B. Sorts by login
+C. Filters only successful logins
+D. Duplicates removed
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Shows top users with login error 
+```
+
+</details>
+
+153. What is the main benefit of using `transaction` over `stats`?
+```
+A. Keeps raw events together as a group
+B. Faster search time
+C. More chart options
+D. Used only for dashboards
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Keeps raw events together as a group 
+```
+
+</details>
+
+154. Which of the following identifies login attempts within 60 seconds per user?
+```
+A. transaction user maxspan=60s
+B. stats by user | span=60s
+C. join type=user within 60s
+D. chart user time
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. transaction user maxspan=60s 
+```
+
+</details>
+
+155. Which SPL provides count, average and distinct values in one table?
+```
+A. stats count avg(duration) dc(user)
+B. table count avg dc
+C. eval duration=avg | count
+D. top duration user
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. stats count avg(duration) dc(user) 
+```
+
+</details>
+
+156. What’s the best way to visualize percentage of status codes?
+```
+A. stats count by status | eventstats sum(count) AS total | eval percent=(count/total)*100
+B. top status
+C. chart status by percent
+D. lookup percent status
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. stats count by status | eventstats sum(count) AS total | eval percent=(count/total)*100 
+```
+
+</details>
+
+157. Which visualization best shows traffic distribution across categories?
+```
+A. Pie Chart
+B. Line Chart
+C. Single Value
+D. Gauge
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Pie Chart 
+```
+
+</details>
+
+158. Which SPL is most useful when tracking logins by user per hour?
+```
+A. timechart span=1h count by user
+B. top user by hour
+C. eval span=1h
+D. stats by hour
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. timechart span=1h count by user 
+```
+
+</details>
+
+159. How to extract the domain from email addresses like 'admin@example.com'?
+```
+A. rex field=email "@(?<domain>.*)"
+B. eval domain=replace(email,".*@","")
+C. eval domain=split(email,"@")[1]
+D. All of the above
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+D. All of the above 
+```
+
+</details>
+
+160. What happens if you omit `by _time` in timechart?
+```
+A. Search fails
+B. Defaults to automatic time bucketing
+C. Returns raw logs
+D. Groups by host
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Defaults to automatic time bucketing 
+```
+
+</details>
+
