@@ -677,8 +677,6 @@ Exam Tips:
 ```
 </details>
 
----
-
 <details>
 <summary>📘 15. Combined Exam Tips (All Sections)</summary>
 
