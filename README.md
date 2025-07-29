@@ -905,7 +905,6 @@ Each entry includes:
 splunk
 index=linux_logs "Failed password"
 
-
 -----------------------------------------
 📘 2. `stats`
 -----------------------------------------
@@ -914,7 +913,6 @@ index=linux_logs "Failed password"
 
 splunk
 | stats count by status
-
 
 -----------------------------------------
 📘 3. `timechart`
@@ -925,7 +923,6 @@ splunk
 splunk
 | timechart span=1h count by host
 
-
 -----------------------------------------
 📘 4. `chart`
 -----------------------------------------
@@ -934,7 +931,6 @@ splunk
 
 splunk
 | chart avg(bytes) over status by host
-
 
 -----------------------------------------
 📘 5. `eval`
@@ -945,7 +941,6 @@ splunk
 splunk
 | eval is_error=if(status>=400, "yes", "no")
 
-
 -----------------------------------------
 📘 6. `where`
 -----------------------------------------
@@ -954,7 +949,6 @@ splunk
 
 splunk
 | where status=404
-
 
 -----------------------------------------
 📘 7. `table`
@@ -965,7 +959,6 @@ splunk
 splunk
 | table user, ip, status
 
-
 -----------------------------------------
 📘 8. `sort`
 -----------------------------------------
@@ -974,7 +967,6 @@ splunk
 
 splunk
 | sort - _time
-
 
 -----------------------------------------
 📘 9. `dedup`
@@ -985,7 +977,6 @@ splunk
 splunk
 | dedup user
 
-
 -----------------------------------------
 📘 10. `fields`
 -----------------------------------------
@@ -993,7 +984,6 @@ splunk
 
 splunk
 | fields host, source
-
 
 -----------------------------------------
 📘 11. `top` / `rare`
@@ -1004,7 +994,6 @@ splunk
 | top status
 | rare user
 
-
 -----------------------------------------
 📘 12. `rex`
 -----------------------------------------
@@ -1012,7 +1001,6 @@ splunk
 
 splunk
 | rex "user=(?<username>\w+)"
-
 
 -----------------------------------------
 📘 13. `spath`
@@ -1022,7 +1010,6 @@ splunk
 splunk
 | spath input=data path=payload.id output=uid
 
-
 -----------------------------------------
 📘 14. `lookup`
 -----------------------------------------
@@ -1030,7 +1017,6 @@ splunk
 
 splunk
 | lookup geo_lookup ip AS src_ip OUTPUT city
-
 
 -----------------------------------------
 📘 15. `inputlookup` / `outputlookup`
@@ -1040,7 +1026,6 @@ splunk
 splunk
 | inputlookup users.csv
 | outputlookup filtered_users.csv
-
 
 -----------------------------------------
 📘 16. `transaction`
@@ -1061,22 +1046,21 @@ splunk
 splunk
 | rename clientip AS ip_address
 
-
 -----------------------------------------
 📘 18. `fillnull`
 -----------------------------------------
 ✅ Fills NULL values
+
 splunk
 | fillnull value="N/A"
-
 
 -----------------------------------------
 📘 19. `join`
 -----------------------------------------
 ✅ Joins two datasets on a field
+
 splunk
 search1 | join user [search2]
-
 
 -----------------------------------------
 📘 20. `append` / `appendcols`
@@ -1086,17 +1070,16 @@ search1 | join user [search2]
 splunk
 search1 | append [search2]
 
-
 -----------------------------------------
 📘 OVER vs BY Summary
 -----------------------------------------
 
-| Feature         | `by` (used in)       | `over` (used in)   |
-|------------------|----------------------|---------------------|
-| Grouping logic   | stats, timechart     | chart               |
-| Axis role        | Grouped rows         | X-axis rows         |
-| Series support   | Yes (`by` supports multiple) | Over only 1 |
-| Used together?   | ✅ In `chart`         | ✅ In `chart`        |
+| Feature          | `by` (used in)                | `over` (used in)    |
+|------------------|-------------------------------|---------------------|
+| Grouping logic   | stats, timechart              | chart               |
+| Axis role        | Grouped rows                  | X-axis rows         |
+| Series support   | Yes (`by` supports multiple)  | Over only 1         |
+| Used together?   | ✅ In `chart`                 | ✅ In `chart`      |
 
 ```
 </details>
