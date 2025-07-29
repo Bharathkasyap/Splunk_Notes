@@ -708,7 +708,7 @@ General Exam Tips:
 ✅ Lookup usage is critical – understand `inputlookup`, `lookup`, and `outputlookup`  
 ✅ Knowledge objects and their permissions (private, app, global) frequently appear in exams  
 
-Pro Tips from Lecture:
+Pro Tips:
 ----------------------
 ✅ Pivot allows visualization without writing SPL – good for business users  
 ✅ Accelerated Datasets enhance dashboard speed – ideal for scheduled panels  
