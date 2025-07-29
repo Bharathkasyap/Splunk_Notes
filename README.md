@@ -881,6 +881,226 @@ Exam Tips:
 ```
 </details>
 
+<details>
+<summary>📘 17. SPL Commands, Purpose, and Usage Reference</summary>
+
+```
+==============================
+17. SPL Commands, Purpose, and Usage Reference
+==============================
+
+This section provides an organized command reference for all important SPL (Search Processing Language) commands covered in Sections 1–14, including advanced commands like `transaction`.
+
+Each entry includes:
+- ✅ Purpose
+- 🛠️ When to Use
+- 🧪 Example
+
+-----------------------------------------
+📘 1. `search`
+-----------------------------------------
+✅ Filters raw events based on keywords or field=value.
+🛠️ First command in any SPL query.
+
+splunk
+index=linux_logs "Failed password"
+
+
+-----------------------------------------
+📘 2. `stats`
+-----------------------------------------
+✅ Aggregates data (count, avg, sum, etc.)
+🛠️ Group by fields using `by`
+
+splunk
+| stats count by status
+
+
+-----------------------------------------
+📘 3. `timechart`
+-----------------------------------------
+✅ Time-based aggregation
+🛠️ Needs `_time` and optional `by` field
+
+splunk
+| timechart span=1h count by host
+
+
+-----------------------------------------
+📘 4. `chart`
+-----------------------------------------
+✅ Produces chart-style output
+🛠️ Use `over` for x-axis and `by` for series
+
+splunk
+| chart avg(bytes) over status by host
+
+
+-----------------------------------------
+📘 5. `eval`
+-----------------------------------------
+✅ Creates or modifies fields
+🛠️ Use for conditional logic or transformation
+
+splunk
+| eval is_error=if(status>=400, "yes", "no")
+
+
+-----------------------------------------
+📘 6. `where`
+-----------------------------------------
+✅ Filters events using eval-style conditions
+🛠️ Use after stats/eval
+
+splunk
+| where status=404
+
+
+-----------------------------------------
+📘 7. `table`
+-----------------------------------------
+✅ Formats results into a clean table
+🛠️ Use at end of search
+
+splunk
+| table user, ip, status
+
+
+-----------------------------------------
+📘 8. `sort`
+-----------------------------------------
+✅ Orders results
+🛠️ Use `+` or `-` for ascending/descending
+
+splunk
+| sort - _time
+
+
+-----------------------------------------
+📘 9. `dedup`
+-----------------------------------------
+✅ Removes duplicate rows by field
+🛠️ Retains first instance only
+
+splunk
+| dedup user
+
+
+-----------------------------------------
+📘 10. `fields`
+-----------------------------------------
+✅ Includes or excludes fields
+
+splunk
+| fields host, source
+
+
+-----------------------------------------
+📘 11. `top` / `rare`
+-----------------------------------------
+✅ Lists most or least common values
+
+splunk
+| top status
+| rare user
+
+
+-----------------------------------------
+📘 12. `rex`
+-----------------------------------------
+✅ Extracts fields using regex
+
+splunk
+| rex "user=(?<username>\w+)"
+
+
+-----------------------------------------
+📘 13. `spath`
+-----------------------------------------
+✅ Extracts fields from JSON/XML
+
+splunk
+| spath input=data path=payload.id output=uid
+
+
+-----------------------------------------
+📘 14. `lookup`
+-----------------------------------------
+✅ Joins with external data
+
+splunk
+| lookup geo_lookup ip AS src_ip OUTPUT city
+
+
+-----------------------------------------
+📘 15. `inputlookup` / `outputlookup`
+-----------------------------------------
+✅ Reads/Writes lookup files
+
+splunk
+| inputlookup users.csv
+| outputlookup filtered_users.csv
+
+
+-----------------------------------------
+📘 16. `transaction`
+-----------------------------------------
+✅ Groups events that belong to the same session or activity
+🛠️ Used to track multistep processes (e.g., login → logout)
+
+splunk
+| transaction user startswith="login" endswith="logout"
+
+🧠 Groups by user, within a time window.
+
+-----------------------------------------
+📘 17. `rename`
+-----------------------------------------
+✅ Renames a field
+
+splunk
+| rename clientip AS ip_address
+
+
+-----------------------------------------
+📘 18. `fillnull`
+-----------------------------------------
+✅ Fills NULL values
+splunk
+| fillnull value="N/A"
+
+
+-----------------------------------------
+📘 19. `join`
+-----------------------------------------
+✅ Joins two datasets on a field
+splunk
+search1 | join user [search2]
+
+
+-----------------------------------------
+📘 20. `append` / `appendcols`
+-----------------------------------------
+✅ Combines multiple searches
+
+splunk
+search1 | append [search2]
+
+
+-----------------------------------------
+📘 OVER vs BY Summary
+-----------------------------------------
+
+| Feature         | `by` (used in)       | `over` (used in)   |
+|------------------|----------------------|---------------------|
+| Grouping logic   | stats, timechart     | chart               |
+| Axis role        | Grouped rows         | X-axis rows         |
+| Series support   | Yes (`by` supports multiple) | Over only 1 |
+| Used together?   | ✅ In `chart`         | ✅ In `chart`        |
+
+```
+</details>
+
 ---
 
 
