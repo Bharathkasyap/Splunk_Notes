@@ -318,3 +318,323 @@ A. search error | top limit=3 _raw
 ```
 
 </details>
+
+121. Which SPL function is best to calculate the unique number of users?
+```
+A. stats dc(user)
+B. eval user=distinct()
+C. top user
+D. count(user)
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. stats dc(user) 
+```
+
+</details>
+
+122. Which search filters logs between two specific times?
+```
+A. earliest="07/01/2025:08:00:00" latest="07/01/2025:18:00:00"
+B. time=07/01/2025 to 07/02/2025
+C. range 08:00-18:00
+D. timechart span=10h
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. earliest="07/01/2025:08:00:00" latest="07/01/2025:18:00:00" 
+```
+
+</details>
+
+123. Which SPL query detects brute force attacks using event count threshold?
+```
+A. index=linux_logs "Failed password" | stats count by user, src_ip | where count>10
+B. index=brute_force | fillnull | dedup user
+C. index=logs | stats by attack
+D. index=linux | top failed_login
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. index=linux_logs "Failed password" | stats count by user, src_ip | where count>10 
+```
+
+</details>
+
+124. Which SPL would best chart average response time per API endpoint?
+```
+A. timechart avg(response_time) by endpoint
+B. chart avg(endpoint) by time
+C. stats sum(endpoint) by response_time
+D. eval avg(endpoint)
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. timechart avg(response_time) by endpoint 
+```
+
+</details>
+
+125. How do you rename the field `clientip` to `ip_address`?
+```
+A. rename clientip AS ip_address
+B. table clientip AS ip_address
+C. eval ip_address=clientip
+D. rex rename ip
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. rename clientip AS ip_address 
+```
+
+</details>
+
+126. Which command compares values in one search to another using common field?
+```
+A. join
+B. lookup
+C. appendcols
+D. fillnull
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. join 
+```
+
+</details>
+
+127. Which SPL creates a column view of host, status, and count?
+```
+A. stats count by host, status
+B. table host status count
+C. top host, status
+D. fields host status count
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. table host status count 
+```
+
+</details>
+
+128. What does `sort - count` do in a Splunk query?
+```
+A. Sorts in ascending order
+B. Sorts by count descending
+C. Sorts by time
+D. Sorts by field name
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Sorts by count descending 
+```
+
+</details>
+
+129. Which command enriches events with IP location from lookup?
+```
+A. lookup ip2geo ip OUTPUT city, country
+B. inputlookup ip2geo.csv
+C. rex field=ip
+D. outputlookup
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. lookup ip2geo ip OUTPUT city, country 
+```
+
+</details>
+
+130. How would you extract port number from logs like 'port 22'?
+```
+A. rex "port (?<port>\d+)"
+B. eval port=extract(port)
+C. table port
+D. spath port=field
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. rex "port (?<port>\d+)" 
+```
+
+</details>
+
+131. How to restrict search to logs only from a host called `webserver1`?
+```
+A. host=webserver1
+B. source=webserver1
+C. server=webserver1
+D. hostname=webserver1
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. host=webserver1 
+```
+
+</details>
+
+132. What is the default format of _time field?
+```
+A. Epoch timestamp
+B. ISO 8601
+C. MM/DD/YYYY
+D. Text
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Epoch timestamp 
+```
+
+</details>
+
+133. Which SPL command formats results into a clean table layout?
+```
+A. table
+B. fields
+C. eval
+D. sort
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. table 
+```
+
+</details>
+
+134. How can you find the error codes that appear most frequently?
+```
+A. top error_code
+B. stats by error_code
+C. eval error=count
+D. join error_code
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. top error_code 
+```
+
+</details>
+
+135. What will this SPL do: `stats dc(user) by src_ip`?
+```
+A. Show number of distinct users per IP
+B. Sort IPs
+C. Dedup logs
+D. Track errors
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Show number of distinct users per IP 
+```
+
+</details>
+
+136. Which visualization is best for showing categorical data split by time?
+```
+A. Timechart
+B. Pie Chart
+C. Bar Chart
+D. Single Value
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Timechart 
+```
+
+</details>
+
+137. What is the best way to group events that share the same session id?
+```
+A. transaction session_id
+B. eval session
+C. rex field=session
+D. dedup session_id
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. transaction session_id 
+```
+
+</details>
+
+138. Which command shows event count by host and limits result to top 3?
+```
+A. top limit=3 host
+B. sort -count | head 3
+C. dedup host | head 3
+D. table host | top 3
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. top limit=3 host 
+```
+
+</details>
+
+139. What does `eval temp=celsius*9/5+32` do?
+```
+A. Converts Celsius to Fahrenheit
+B. Converts time zone
+C. Converts temperature to Kelvin
+D. Extracts temp field
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Converts Celsius to Fahrenheit 
+```
+
+</details>
+
+140. Which SPL gives you events without certain fields?
+```
+A. fields - unwanted_field
+B. dedup fields
+C. eval !field
+D. table !field
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. fields - unwanted_field 
+```
+
+</details>
