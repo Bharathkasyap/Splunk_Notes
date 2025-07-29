@@ -14,7 +14,9 @@
 
 What is Splunk?
 ---------------
-Splunk is a powerful platform for searching, monitoring, and analyzing machine-generated big data via a web-style interface. It stores, indexes, and correlates real-time data in a searchable repository from which it can generate graphs, reports, alerts, dashboards, and visualizations.
+Splunk is a powerful platform for searching, monitoring, and analyzing machine-generated big data via a web-style interface.
+It stores, indexes, and correlates real-time data in a searchable repository from which it can generate graphs, reports,
+alerts, dashboards, and visualizations.
 
 Why Use Splunk?
 ---------------
