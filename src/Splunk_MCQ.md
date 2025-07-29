@@ -7,6 +7,7 @@ D. Assigns events to fields
 ```
 <details><summary> 
 **Answer:** </summary>
+```
 C. Identifies the data repository to search in 
-
+```
 </details>
