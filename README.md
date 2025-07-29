@@ -677,8 +677,65 @@ Exam Tips:
 ```
 </details>
 
-
 ---
+
+<details>
+<summary>📘 15. Combined Exam Tips (All Sections)</summary>
+
+```
+==============================
+15. Combined Exam Tips (All Sections)
+==============================
+
+This section consolidates the most important exam tips scattered across all prior sections and lecture screenshots.
+
+General Exam Tips:
+------------------
+✅ Understand the architecture – role of Indexer, Search Head, Universal Forwarder  
+✅ Know the difference between real-time, scheduled, and historical searches  
+✅ Use Time Picker wisely – avoid querying too much data  
+✅ SPL is case-sensitive – especially field names  
+✅ Syntax errors often stem from missing `|` or incorrect field references  
+✅ Save time by knowing when to use Fast, Smart, or Verbose search modes  
+✅ Pay attention to default vs. interesting fields in the Fields panel  
+✅ Practice regex (`rex`) and JSON field extraction (`spath`)  
+✅ Use `eval` to create dynamic fields and `stats` for summary views  
+✅ `timechart` always needs `_time` field  
+✅ Reports vs Dashboards: Reports are for static outputs, Dashboards are for interactive visualization  
+✅ Alerts are scheduled searches with trigger conditions and actions  
+✅ Lookup usage is critical – understand `inputlookup`, `lookup`, and `outputlookup`  
+✅ Knowledge objects and their permissions (private, app, global) frequently appear in exams  
+
+Pro Tips from Lecture:
+----------------------
+✅ Pivot allows visualization without writing SPL – good for business users  
+✅ Accelerated Datasets enhance dashboard speed – ideal for scheduled panels  
+✅ Use calculated fields instead of rewriting SPL every time  
+✅ Don’t mix index-time and search-time field logic in same query  
+✅ Tags and event types are critical for data model mapping and CIM compliance  
+✅ Real-time alerts are costly – prefer scheduled unless justified  
+✅ Field aliasing is useful when dealing with multiple sourcetypes  
+✅ Use summary indexing to reduce computation for frequent reports/alerts  
+✅ Use dropdowns and dynamic filters in dashboards to enhance usability  
+✅ Use `dc()` for distinct count and `values()` to list unique items
+
+Suggested Strategy for Exam:
+----------------------------
+🧠 Memorize SPL syntax and functions: `stats`, `eval`, `dedup`, `chart`, `table`, `sort`, `rename`  
+🧪 Practice queries using provided sample logs (e.g., `secure.log`)  
+🧩 Use scenario-based logic: Know what search should be used to troubleshoot login issues or network errors  
+📊 Practice building dashboards from raw searches  
+🗂️ Understand the difference between fields, tags, event types, and calculated fields  
+
+Recommended Practice:
+---------------------
+- Write at least 50 SPL queries using transforming + filtering commands  
+- Create a dashboard with at least 3 panels: timechart, bar, and single-value  
+- Configure a scheduled alert with condition >10 failed login attempts in 1h  
+- Perform a lookup join with external CSV data  
+- Use `rex` to extract usernames from secure.log manually
+```
+</details>
 
 ✅ **Prepared for certification + real-world analyst usage**  
 📝 Includes: Search commands, Dashboards, Alerts, Knowledge objects  
