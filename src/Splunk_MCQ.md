@@ -1277,3 +1277,323 @@ B. table
 
 </details>
 
+81. Which Splunk role is most restricted by default?
+```
+A. User
+B. Power
+C. Admin
+D. Viewer
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+D. Viewer 
+```
+
+</details>
+
+82. Which command is best suited for multi-step session tracking?
+```
+A. join
+B. append
+C. transaction
+D. table
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. transaction 
+```
+
+</details>
+
+83. What SPL function counts how many events match a condition?
+```
+A. eval
+B. count()
+C. stats
+D. where
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. count() 
+```
+
+</details>
+
+84. What component is used to distribute configuration files in large deployments?
+```
+A. Indexer
+B. Search Head
+C. Deployment Server
+D. Lookup Table
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Deployment Server 
+```
+
+</details>
+
+85. Which tab in the Search Head UI shows raw event logs?
+```
+A. Data Summary
+B. Visualization
+C. Events
+D. Fields
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Events 
+```
+
+</details>
+
+86. Which command adds columns from a subsearch horizontally?
+```
+A. append
+B. appendcols
+C. join
+D. stats
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. appendcols 
+```
+
+</details>
+
+87. How do you remove unnecessary fields from results?
+```
+A. sort
+B. table
+C. fields -
+D. dedup
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. fields - 
+```
+
+</details>
+
+88. What command is useful to detect IPs with high login failures?
+```
+A. lookup
+B. chart
+C. stats count by src_ip
+D. fillnull
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. stats count by src_ip 
+```
+
+</details>
+
+89. What do you use `rex` for?
+```
+A. Join lookups
+B. Extract field with regex
+C. Create dashboards
+D. Fill NULL values
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Extract field with regex 
+```
+
+</details>
+
+90. Which object is NOT a Splunk Knowledge Object?
+```
+A. Lookup
+B. Tag
+C. Transaction
+D. Event Type
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Transaction 
+```
+
+</details>
+
+91. Which function gives average of numeric values?
+```
+A. avg()
+B. sum()
+C. dc()
+D. values()
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. avg() 
+```
+
+</details>
+
+92. Which field is assigned by Splunk to every indexed event?
+```
+A. _index
+B. _time
+C. _json
+D. log_id
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. _time 
+```
+
+</details>
+
+93. What is the outcome of using `sort +user`?
+```
+A. Descending by user
+B. No sort
+C. Ascending by user
+D. Sort by time
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Ascending by user 
+```
+
+</details>
+
+94. What command would best identify top URLs accessed?
+```
+A. table url
+B. top url
+C. stats by url
+D. sort - url
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. top url 
+```
+
+</details>
+
+95. What’s the main difference between `table` and `fields`?
+```
+A. Fields outputs raw JSON
+B. Table sorts alphabetically
+C. Table formats output; fields selects fields
+D. Fields is for dashboards only
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Table formats output; fields selects fields 
+```
+
+</details>
+
+96. Which command writes results into a lookup file?
+```
+A. inputlookup
+B. outputlookup
+C. lookup
+D. fillnull
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. outputlookup 
+```
+
+</details>
+
+97. What is the best visualization for metric over time?
+```
+A. Bar
+B. Pie
+C. Single Value
+D. Line Chart
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+D. Line Chart 
+```
+
+</details>
+
+98. Which Splunk command enriches events using external data?
+```
+A. outputlookup
+B. lookup
+C. rex
+D. fillnull
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. lookup 
+```
+
+</details>
+
+99. What command can be used to track multiple login/logout per user?
+```
+A. dedup user
+B. transaction user
+C. stats by user
+D. appendcols
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. transaction user 
+```
+
+</details>
+
+100. Which field type is extracted during a search but not stored?
+```
+A. Calculated
+B. Indexed
+C. Search-time
+D. Lookup
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Search-time 
+```
+
+</details>
+
