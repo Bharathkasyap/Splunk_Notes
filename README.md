@@ -740,6 +740,147 @@ Recommended Practice:
 </details>
 
 
+<details>
+<summary>📘 16. Syntax Memorization & SPL Restrictions</summary>
+
+```
+==============================
+16. Syntax Memorization & SPL Restrictions
+==============================
+
+This section provides a one-stop reference to memorize SPL (Search Processing Language) syntax and highlights key usage restrictions, caveats, and best practices.
+
+-----------------------------
+🔤 Case Sensitivity
+-----------------------------
+- SPL command names → **NOT** case-sensitive (e.g., `stats`, `STATS`, `Stats` all work)
+- **Field names** → ✅ Case-sensitive (`status` ≠ `Status`)
+- **String literals** in eval or where → ✅ Case-sensitive (`"error"` ≠ `"ERROR"`)
+
+-----------------------------
+📐 Command Placement & Pipes
+-----------------------------
+- Each SPL command is separated by a `|` (pipe)
+- Commands must follow logical sequence:
+  - Search first
+  - Filtering / `eval`
+  - Transforming / `stats`, `chart`
+  - Formatting / `table`, `sort`
+
+Wrong:
+splunk
+| table host | index=main
+
+
+Correct:
+splunk
+index=main | table host
+
+
+-----------------------------
+📊 `stats` vs `chart` vs `timechart`
+-----------------------------
+- `stats` → General aggregation (no axis requirements)
+
+splunk
+index=web | stats count by status
+
+
+- `chart` → Requires:
+  - `OVER <field>` → x-axis
+  - `BY <field>` → data series
+splunk
+index=web | chart avg(bytes) over status by host
+
+- `timechart` → Requires `_time` field
+
+splunk
+index=web | timechart span=1h count by status
+
+
+Restrictions:
+-------------
+- `chart` must use either `over` or `by`, not both together unless explicitly supported
+- `timechart` **only supports 1 BY field** for splitting series
+
+-----------------------------
+🧠 Eval & Conditional Logic
+-----------------------------
+Eval creates or modifies fields dynamically.
+
+Examples:
+splunk
+| eval error=if(status>=400, "yes", "no")
+| eval user_type=case(role="admin", "privileged", role="guest", "limited")
+
+Restrictions:
+- Use `==` or `!=` for string equality, not `=`
+- Always enclose string comparisons in `"double quotes"`
+
+-----------------------------
+🧹 Filtering Commands
+-----------------------------
+- `where` → Filters rows based on conditions
+- `search` → Can be used inline for match
+splunk
+| where status=404
+| search user=admin
+
+
+Restrictions:
+- `where` uses eval-style logic
+- `search` uses keyword-based match
+
+-----------------------------
+🛑 Dedup, Sort, Rename, Table
+-----------------------------
+- `dedup <field>` → Remove duplicate values by field
+- `sort` → Order rows (default 10000 limit)
+splunk
+| sort - _time
+
+
+- `rename <old> AS <new>` → Rename fields
+- `table <field1> <field2>` → Output clean column display
+
+-----------------------------
+🔍 Lookup Syntax
+-----------------------------
+splunk
+| lookup ip_lookup ip AS client_ip OUTPUT location
+
+
+Restrictions:
+- Field names must match case exactly
+- Lookup file must be defined in `Settings > Lookups`
+
+-----------------------------
+📚 Summary
+-----------------------------
+
+Command         | Purpose                        | Notes
+----------------|--------------------------------|-----------------------------
+`eval`          | Create fields                  | Case-sensitive values
+`stats`         | Aggregate                      | Multiple fields OK
+`chart`         | Visual summary                 | Use `over` / `by` with care
+`timechart`     | Time-series graph              | Needs `_time`
+`dedup`         | Remove dup rows                | 1 field only
+`where`         | Conditional filter             | Uses eval syntax
+`search`        | Keyword-based filter           | Simple text match
+`table`         | Format as columns              | Final display
+`sort`          | Sort rows                      | Default limit 10000
+`lookup`        | Join external data             | Case-sensitive
+
+Exam Tips:
+----------
+📌 Field names = case-sensitive  
+📌 Functions and commands = case-insensitive  
+📌 Understand OVER vs BY  
+📌 SPL logic: Search → Filter → Eval → Transform → Format
+
+```
+</details>
+
 ---
 
 
