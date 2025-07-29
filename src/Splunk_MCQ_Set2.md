@@ -1279,3 +1279,323 @@ A. timechart span=1h count by user
 
 </details>
 
+161. What does the `eventstats` command do?
+```
+A. Adds aggregated data to each event
+B. Deletes duplicate logs
+C. Generates pie charts
+D. Filters fields
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Adds aggregated data to each event 
+```
+
+</details>
+
+162. Which SPL extracts and counts failed SSH login attempts by IP?
+```
+A. index=linux_logs "Failed password" | stats count by src_ip
+B. search ssh error | stats by ip
+C. eval login=fail | table ip
+D. index=ssh_logs | dedup ip
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. index=linux_logs "Failed password" | stats count by src_ip 
+```
+
+</details>
+
+163. Which SPL query detects repeated errors by host?
+```
+A. index=errors | stats count by host | where count>5
+B. index=errors | dedup host
+C. search host error
+D. stats error count
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. index=errors | stats count by host | where count>5 
+```
+
+</details>
+
+164. How do you search for events that do NOT contain the word 'success'?
+```
+A. search NOT success
+B. search != success
+C. where success=false
+D. search success=0
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. search NOT success 
+```
+
+</details>
+
+165. Which SPL command combines all events into one per user session?
+```
+A. transaction user
+B. dedup user
+C. top user
+D. append user
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. transaction user 
+```
+
+</details>
+
+166. Which SPL query extracts field `user` and groups by day of week?
+```
+A. eval day=strftime(_time,"%A") | stats count by day, user
+B. eval day=dayofweek() | stats user
+C. rex _time user day
+D. timechart span=1d user
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. eval day=strftime(_time,"%A") | stats count by day, user 
+```
+
+</details>
+
+167. Which SPL query counts events over 10 minutes per host?
+```
+A. timechart span=10m count by host
+B. chart host per 10min
+C. stats count by host every 10m
+D. eventstats 10m host
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. timechart span=10m count by host 
+```
+
+</details>
+
+168. Which SPL visualizes failed logins per source IP over 6 hours?
+```
+A. index=linux_logs "Failed password" | timechart span=6h count by src_ip
+B. index=linux_logs | chart src_ip over 6h
+C. stats by user 6h
+D. timechart count by host
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. index=linux_logs "Failed password" | timechart span=6h count by src_ip 
+```
+
+</details>
+
+169. What is the purpose of `search source=*secure.log*`?
+```
+A. Filters logs from secure.log
+B. Renames logs
+C. Deletes secure logs
+D. Creates index
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Filters logs from secure.log 
+```
+
+</details>
+
+170. What will `stats values(status) by user` produce?
+```
+A. List of all status values per user
+B. Counts status
+C. Top 5 users
+D. Deduplicates status
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. List of all status values per user 
+```
+
+</details>
+
+171. What is the effect of `chart avg(bytes) over user by _time`?
+```
+A. Plots average bytes per user over time
+B. Summarizes bytes
+C. Deduplicates users
+D. Counts events
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Plots average bytes per user over time 
+```
+
+</details>
+
+172. Which command is used to create a field from part of another field?
+```
+A. eval
+B. rex
+C. table
+D. stats
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. eval 
+```
+
+</details>
+
+173. Which SPL returns all HTTP 500 errors grouped by URL?
+```
+A. search status=500 | stats count by url
+B. stats by url
+C. eval status=500 | table url
+D. index=web | dedup url
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. search status=500 | stats count by url 
+```
+
+</details>
+
+174. Which SPL command helps remove specific fields from result?
+```
+A. fields - fieldname
+B. eval field=null
+C. dedup field
+D. sort -field
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. fields - fieldname 
+```
+
+</details>
+
+175. How to convert `_time` to human-readable format?
+```
+A. eval readable_time=strftime(_time,"%Y-%m-%d %H:%M:%S")
+B. table _time as readable
+C. eval _time=convert()
+D. convert _time to text
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. eval readable_time=strftime(_time,"%Y-%m-%d %H:%M:%S") 
+```
+
+</details>
+
+176. How to get the maximum `duration` by host?
+```
+A. stats max(duration) by host
+B. chart duration host
+C. table host duration
+D. eval duration=max
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. stats max(duration) by host 
+```
+
+</details>
+
+177. Which SPL command returns a list of distinct users?
+```
+A. stats dc(user)
+B. table user
+C. top user
+D. values(user)
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+D. values(user) 
+```
+
+</details>
+
+178. How to view field names available in events?
+```
+A. fields
+B. table
+C. rex
+D. list
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. fields 
+```
+
+</details>
+
+179. Which visualization best shows user activity count grouped by department?
+```
+A. Bar Chart
+B. Pie Chart
+C. Line Chart
+D. Single Value
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Bar Chart 
+```
+
+</details>
+
+180. Which SPL query summarizes login attempts per hour, per user?
+```
+A. timechart span=1h count by user
+B. chart login user per hour
+C. stats user hourly
+D. dedup user by hour
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. timechart span=1h count by user 
+```
+
+</details>
+
