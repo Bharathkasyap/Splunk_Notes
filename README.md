@@ -1089,4 +1089,4 @@ search1 | append [search2]
 
 ✅ **Prepared for certification + real-world analyst usage**  
 📝 Includes: Search commands, Dashboards, Alerts, Knowledge objects  
-**[Practice Questions] (https://github.com/Bharathkasyap/Splunk_Notes/blob/main/src/Splunk_MCQ.md)**
+- **[Practice Questions] (https://github.com/Bharathkasyap/Splunk_Notes/blob/main/src/Splunk_MCQ.md)**
