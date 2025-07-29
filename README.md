@@ -50,9 +50,9 @@ Example Log (from secure.log):
 
 Basic Search:
 -------------
-```splunk
+splunk
 index=linux_logs sourcetype=secure.log "Failed password"
-```
+
 
 Exam Tips:
 ----------
@@ -60,6 +60,7 @@ Exam Tips:
 📌 Know the data flow and difference between UF, Indexer, and SH.
 📌 Remember where parsing, indexing, and searching occur.
 
+```
 </details>
 
 <details>
