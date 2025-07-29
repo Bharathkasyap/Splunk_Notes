@@ -5,13 +5,6 @@
 ---
 
 <details>
-<summary># 📘 Splunk Power User Notes – Sections 1 to 4
-
-> First 4 core sections for SPLK-1002 Certification
-
----
-
-<details>
 <summary>📘 1. Introduction to Splunk</summary>
 
 ```
