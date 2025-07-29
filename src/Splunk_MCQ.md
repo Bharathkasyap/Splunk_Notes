@@ -317,3 +317,324 @@ C. join
 ```
 
 </details>
+
+21. Which function returns the number of unique values in a field?
+```
+A. sum()
+B. values()
+C. dc()
+D. count()
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. dc() 
+```
+
+</details>
+
+22. What command would you use to rename a field in results?
+```
+A. eval
+B. rename
+C. table
+D. rex
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. rename 
+```
+
+</details>
+
+23. Which Splunk command helps read JSON logs and extract nested fields?
+```
+A. spath
+B. rex
+C. eval
+D. fields
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. spath 
+```
+
+</details>
+
+24. How do you create a new field based on conditional logic?
+```
+A. eval
+B. table
+C. dedup
+D. sort
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. eval 
+```
+
+</details>
+
+25. Which of the following is a knowledge object in Splunk?
+```
+A. transaction
+B. field
+C. event type
+D. rex
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. event type 
+```
+
+</details>
+
+26. Which mode discovers all fields but is slowest?
+```
+A. Fast
+B. Smart
+C. Verbose
+D. None
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Verbose 
+```
+
+</details>
+
+27. Which command writes search results to a lookup file?
+```
+A. outputlookup
+B. inputlookup
+C. lookup
+D. eval
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. outputlookup 
+```
+
+</details>
+
+28. What does the 'rex' command require to extract fields?
+```
+A. JSON path
+B. Regex pattern
+C. Stats function
+D. Lookup table
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Regex pattern 
+```
+
+</details>
+
+29. Which of the following can be scheduled?
+```
+A. Dashboard
+B. Saved Search
+C. Report
+D. Alert
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Report 
+```
+
+</details>
+
+30. What role does the Deployment Server play?
+```
+A. Stores dashboards
+B. Distributes configurations
+C. Parses logs
+D. Performs indexing
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Distributes configurations 
+```
+
+</details>
+
+31. What is the default field that represents time in Splunk?
+```
+A. timestamp
+B. log_time
+C. _time
+D. event_time
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. _time 
+```
+
+</details>
+
+32. Which function would calculate average bytes transferred?
+```
+A. avg(bytes)
+B. count(bytes)
+C. sum(bytes)
+D. dc(bytes)
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. avg(bytes) 
+```
+
+</details>
+
+33. What type of chart is best for showing time-based trends?
+```
+A. Pie Chart
+B. Timechart
+C. Bar Chart
+D. Single Value
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Timechart 
+```
+
+</details>
+
+34. Which command combines results from two different searches?
+```
+A. append
+B. eval
+C. join
+D. stats
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. append 
+```
+
+</details>
+
+35. In Splunk, what is a 'sourcetype'?
+```
+A. A field extraction
+B. Data format identifier
+C. Index name
+D. Search role
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Data format identifier 
+```
+
+</details>
+
+36. Which component allows users to create alerts and dashboards?
+```
+A. Indexer
+B. Search Head
+C. Universal Forwarder
+D. Deployment Server
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Search Head 
+```
+
+</details>
+
+37. Which command would remove duplicate usernames?
+```
+A. dedup user
+B. sort user
+C. fields user
+D. table user
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. dedup user 
+```
+
+</details>
+
+38. What visualization is best for showing overall status at a glance?
+```
+A. Pie Chart
+B. Single Value
+C. Bar Chart
+D. Scatter Plot
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Single Value 
+```
+
+</details>
+
+39. What does the 'inputlookup' command do?
+```
+A. Fetches logs from files
+B. Displays field names
+C. Reads data from lookup file
+D. Exports logs to CSV
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Reads data from lookup file 
+```
+
+</details>
+
+40. Which type of field is created during indexing?
+```
+A. Calculated Field
+B. Search-time Field
+C. Indexed Field
+D. Tag
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Indexed Field 
+```
+
+</details>
+
