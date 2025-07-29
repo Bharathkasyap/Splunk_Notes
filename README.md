@@ -1,194 +1,13 @@
-# Splunk_Notes
+# 📘 Splunk Core Certified Power User Notes
 
-==============================
-1. Introduction to Splunk
-==============================
+> Professionally organized notes for SPLK-1002 exam preparation.
 
-What is Splunk?
----------------
-Splunk is a powerful platform for searching, monitoring, and analyzing machine-generated big data via a web-style interface. It stores, indexes, and correlates real-time data in a searchable repository from which it can generate graphs, reports, alerts, dashboards, and visualizations.
+---
 
-Why Use Splunk?
----------------
-- Centralized log analysis
-- Real-time monitoring
-- Powerful dashboards
-- Alerting and automation
-- Extensible via apps and add-ons
+<details>
+<summary>📘 5. Using Fields and Field Extraction</summary>
 
-Splunk Components:
-------------------
-1. **Universal Forwarder (UF)** – Lightweight agent that sends logs to Splunk Indexer.
-2. **Indexer** – Parses and indexes the incoming data.
-3. **Search Head (SH)** – Frontend used to run searches and build visualizations.
-4. **Deployment Server** – Manages configurations for multiple Splunk instances.
-
-Data Flow in Splunk:
---------------------
-1. Log sources → UF → Indexer → SH
-2. Raw data → Parsing → Indexing → Searching → Reporting
-
-Indexes:
---------
-- Logical data storage locations (like folders)
-- Default index: `main`
-- Custom indexes can be created
-
-Example Log (from secure.log):
-------------------------------
-`Jun 08 18:20:24 sshd[4747]: Failed password for invalid user john from 10.0.0.4 port 22`
-
-Basic Search:
--------------
-```splunk
-index=linux_logs sourcetype=secure.log "Failed password"
 ```
-
-Exam Tips:
-----------
-📌 Understand each Splunk component and its role.
-📌 Know the data flow and difference between UF, Indexer, and SH.
-📌 Remember where parsing, indexing, and searching occur.
-
-==============================
-2. Navigating the Splunk Interface
-==============================
-
-Overview:
----------
-Splunk's Web Interface (Search Head) is where analysts perform searches, build dashboards, create alerts, and view visualizations.
-
-Main UI Components:
--------------------
-1. Search Bar – Where SPL queries are written.
-2. Time Range Picker – Choose time windows like "Last 24 hours" or custom time.
-3. Sidebar Panel – Displays Datasets, Reports, Alerts, Apps, and Settings.
-4. Fields Panel – Shows all indexed and extracted fields for each event.
-5. Events Viewer – Displays event logs with field highlighting.
-
-Time Range Picker:
-------------------
-This is critical to scope your searches correctly.
-
-Search Modes:
--------------
-1. Fast – Fastest, skips field discovery.
-2. Smart – Default mode, balances speed and field discovery.
-3. Verbose – Slower, discovers all fields.
-
-Field Discovery:
-----------------
-Selected Fields: _time, host, source, sourcetype
-Interesting Fields: Splunk's suggested fields
-
-Example:
---------
-```splunk
-index=linux_logs sourcetype=secure.log "Failed password"
-| stats count by user
-```
-
-Exam Tips:
-----------
-📌 Know what each UI panel is used for.
-📌 Understand when to use Fast vs. Smart vs. Verbose search modes.
-📌 The Time Picker greatly affects results — avoid forgetting to check it!
-
-==============================
-3. Time Ranges in Splunk
-==============================
-
-Overview:
----------
-Time range selection is one of the most critical aspects of Splunk searches.
-
-Time Picker Presets:
---------------------
-- Last 15 minutes
-- Last 24 hours
-- Last 7 days
-- Yesterday
-- Real-time
-
-Relative Time:
---------------
-- `-1h@h` = 1 hour ago aligned to hour
-- `-15m@m` = 15 minutes ago, aligned to minute
-
-Time Modifiers in SPL:
-----------------------
-```splunk
-index=syslog earliest=-2h
-index=syslog earliest="07/27/2025:08:00:00" latest="07/27/2025:10:00:00"
-```
-
-Real-Time Searches:
--------------------
-- Live dashboarding
-- Use with care (high system usage)
-
-Example Query:
---------------
-```splunk
-index=linux_logs sourcetype=secure.log "Failed password"
-| stats count by src_ip
-| where count > 10
-earliest=-1h
-```
-
-Exam Tips:
-----------
-📌 Set the right time range before running queries.
-📌 Know real-time vs. historical tradeoffs.
-📌 Understand time modifiers (`earliest`, `latest`).
-==============================
-4. SPL Syntax and Search Pipeline
-==============================
-
-Overview:
----------
-SPL (Search Processing Language) is how you query data in Splunk.
-
-Structure:
-----------
-Each command is separated by a pipe (`|`) symbol.
-
-Example:
---------
-```splunk
-index=web sourcetype=access_combined
-| stats count by status
-```
-
-Command Types:
---------------
-- Search: `index=main`
-- Transforming: `stats`, `chart`, `timechart`
-- Filtering: `where`, `fields`, `dedup`
-- Eval: `eval`, `if`, `case`
-- Format: `table`, `sort`
-
-Example Query:
---------------
-```splunk
-index=web sourcetype=access_combined
-| eval is_error=if(status>=400, "yes", "no")
-| stats count by is_error
-```
-
-Real-World Example:
--------------------
-```splunk
-index=linux_logs sourcetype=secure.log "Failed password"
-| eval day=strftime(_time, "%A")
-| stats count by day, user
-```
-
-Exam Tips:
-----------
-📌 SPL syntax is case-sensitive.
-📌 Don’t forget the `|` between commands.
-📌 Understand the role of each command type in the pipeline.
 ==============================
 5. Using Fields and Field Extraction
 ==============================
@@ -235,6 +54,14 @@ Exam Tips:
 📌 Understand difference between indexed vs search-time fields.
 📌 Practice both `rex` and `spath` syntax.
 📌 Know where to configure field extractions in the UI.
+```
+</details>
+
+
+<details>
+<summary>📘 6. Using Search Modes</summary>
+
+```
 ==============================
 6. Using Search Modes
 ==============================
@@ -268,6 +95,14 @@ Exam Tips:
 📌 Know when to switch modes.
 📌 Verbose is needed for field discovery.
 📌 Smart adjusts based on pipeline usage.
+```
+</details>
+
+
+<details>
+<summary>📘 7. Transforming Commands</summary>
+
+```
 ==============================
 7. Transforming Commands
 ==============================
@@ -314,6 +149,14 @@ Exam Tips:
 📌 Understand difference between stats, chart, and timechart.
 📌 Know transforming functions (avg, dc, sum, etc.).
 📌 Timechart requires _time field.
+```
+</details>
+
+
+<details>
+<summary>📘 8. Data Visualizations & Dashboards</summary>
+
+```
 ==============================
 8. Data Visualizations & Dashboards
 ==============================
@@ -350,6 +193,14 @@ Exam Tips:
 📌 You can save searches as dashboard panels.
 📌 Know the types of visualizations.
 📌 Use dynamic filters and inputs for reusability.
+```
+</details>
+
+
+<details>
+<summary>📘 9. Creating and Using Reports</summary>
+
+```
 ==============================
 9. Creating and Using Reports
 ==============================
@@ -387,6 +238,14 @@ Exam Tips:
 📌 Reports are saved searches.
 📌 You can schedule and share reports.
 📌 Reports can send emails or trigger alerts.
+```
+</details>
+
+
+<details>
+<summary>📘 10. Alerts and Scheduled Searches</summary>
+
+```
 ==============================
 10. Alerts and Scheduled Searches
 ==============================
@@ -430,6 +289,14 @@ Exam Tips:
 📌 Know difference between real-time vs scheduled.
 📌 Understand how to configure trigger conditions.
 📌 Alerts are just scheduled searches with actions.
+```
+</details>
+
+
+<details>
+<summary>📘 11. Event Types and Tags</summary>
+
+```
 ==============================
 11. Event Types and Tags
 ==============================
@@ -463,6 +330,14 @@ Exam Tips:
 📌 Event types are named saved searches.
 📌 Tags help group events logically.
 📌 Tags are useful for CIM and accelerated datasets.
+```
+</details>
+
+
+<details>
+<summary>📘 12. Lookups and Field Enrichment</summary>
+
+```
 ==============================
 12. Lookups and Field Enrichment
 ==============================
@@ -502,6 +377,14 @@ Exam Tips:
 📌 Understand inputlookup vs lookup vs outputlookup.
 📌 Know where automatic lookups are defined.
 📌 Know CSV formatting and matching fields.
+```
+</details>
+
+
+<details>
+<summary>📘 13. Calculated Fields, Aliases, and Field Extractions</summary>
+
+```
 ==============================
 13. Calculated Fields, Aliases, and Field Extractions
 ==============================
@@ -530,6 +413,14 @@ Exam Tips:
 📌 Calculated fields use eval.
 📌 Field aliases map one field name to another.
 📌 Field extractions = making fields from raw logs.
+```
+</details>
+
+
+<details>
+<summary>📘 14. Splunk Knowledge Objects Summary</summary>
+
+```
 ==============================
 14. Splunk Knowledge Objects Summary
 ==============================
@@ -565,3 +456,11 @@ Exam Tips:
 📌 Know which object is used where.
 📌 Permissions and ownership impact usage.
 📌 All objects are found in Settings > Knowledge.
+```
+</details>
+
+
+---
+
+✅ **Prepared for certification + real-world analyst usage**  
+📝 Includes: Search commands, Dashboards, Alerts, Knowledge objects  
