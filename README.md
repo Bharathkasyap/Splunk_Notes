@@ -1092,4 +1092,4 @@ search1 | append [search2]
 - **[Practice Questions] (https://github.com/Bharathkasyap/Splunk_Notes/blob/main/src/Splunk_MCQ.md)**
 
 
-- [🔍 Brute Force Threat Detection (Sentinel)](https://github.com/Bharathkasyap/Threat_Hunt_Brute_Froce_Attack_Bharath)
+- [🔍 Practice Questions]([https://github.com/Bharathkasyap/Threat_Hunt_Brute_Froce_Attack_Bharath](https://github.com/Bharathkasyap/Splunk_Notes/blob/main/src/Splunk_MCQ.md)
