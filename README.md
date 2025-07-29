@@ -53,7 +53,6 @@ Basic Search:
 splunk
 index=linux_logs sourcetype=secure.log "Failed password"
 
-
 Exam Tips:
 ----------
 📌 Understand each Splunk component and its role.
@@ -100,16 +99,16 @@ Interesting Fields: Splunk's suggested fields
 
 Example:
 --------
-```splunk
+splunk
 index=linux_logs sourcetype=secure.log "Failed password"
 | stats count by user
-```
 
 Exam Tips:
 ----------
 📌 Know what each UI panel is used for.
 📌 Understand when to use Fast vs. Smart vs. Verbose search modes.
 📌 The Time Picker greatly affects results — avoid forgetting to check it!
+```
 
 </details>
 
@@ -141,10 +140,10 @@ Relative Time:
 
 Time Modifiers in SPL:
 ----------------------
-```splunk
+splunk
 index=syslog earliest=-2h
 index=syslog earliest="07/27/2025:08:00:00" latest="07/27/2025:10:00:00"
-```
+
 
 Real-Time Searches:
 -------------------
@@ -153,18 +152,19 @@ Real-Time Searches:
 
 Example Query:
 --------------
-```splunk
+splunk
 index=linux_logs sourcetype=secure.log "Failed password"
 | stats count by src_ip
 | where count > 10
 earliest=-1h
-```
+
 
 Exam Tips:
 ----------
 📌 Set the right time range before running queries.
 📌 Know real-time vs. historical tradeoffs.
 📌 Understand time modifiers (`earliest`, `latest`).
+```
 
 </details>
 
@@ -187,10 +187,10 @@ Each command is separated by a pipe (`|`) symbol.
 
 Example:
 --------
-```splunk
+splunk
 index=web sourcetype=access_combined
 | stats count by status
-```
+
 
 Command Types:
 --------------
@@ -202,25 +202,26 @@ Command Types:
 
 Example Query:
 --------------
-```splunk
+splunk
 index=web sourcetype=access_combined
 | eval is_error=if(status>=400, "yes", "no")
 | stats count by is_error
-```
+
 
 Real-World Example:
 -------------------
-```splunk
+splunk
 index=linux_logs sourcetype=secure.log "Failed password"
 | eval day=strftime(_time, "%A")
 | stats count by day, user
-```
 
 Exam Tips:
 ----------
 📌 SPL syntax is case-sensitive.
 📌 Don’t forget the `|` between commands.
 📌 Understand the role of each command type in the pipeline.
+
+```
 
 </details>
 
