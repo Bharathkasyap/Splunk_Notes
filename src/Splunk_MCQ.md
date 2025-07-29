@@ -1,3 +1,6 @@
+# Practice Questions_ Set 1:
+--------------------------
+
 1. What is the purpose of the 'index' keyword in a Splunk search?
 ```
 A. Specifies the type of visualization to use
