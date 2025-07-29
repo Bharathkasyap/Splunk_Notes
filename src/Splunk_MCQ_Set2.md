@@ -1279,323 +1279,322 @@ A. timechart span=1h count by user
 
 </details>
 
-161. What does the `eventstats` command do?
+181. What does `table` command do in SPL?
 ```
-A. Adds aggregated data to each event
-B. Deletes duplicate logs
-C. Generates pie charts
-D. Filters fields
-```
-<details><summary> 
-**Answer:** </summary>
-
-```
-A. Adds aggregated data to each event 
-```
-
-</details>
-
-162. Which SPL extracts and counts failed SSH login attempts by IP?
-```
-A. index=linux_logs "Failed password" | stats count by src_ip
-B. search ssh error | stats by ip
-C. eval login=fail | table ip
-D. index=ssh_logs | dedup ip
+A. Displays fields in tabular format
+B. Aggregates data
+C. Generates charts
+D. Deletes nulls
 ```
 <details><summary> 
 **Answer:** </summary>
 
 ```
-A. index=linux_logs "Failed password" | stats count by src_ip 
+A. Displays fields in tabular format 
 ```
 
 </details>
 
-163. Which SPL query detects repeated errors by host?
+182. How do you show both total and distinct user counts?
 ```
-A. index=errors | stats count by host | where count>5
-B. index=errors | dedup host
-C. search host error
-D. stats error count
+A. stats count, dc(user)
+B. table user count
+C. dedup user | stats count
+D. top user
 ```
 <details><summary> 
 **Answer:** </summary>
 
 ```
-A. index=errors | stats count by host | where count>5 
+A. stats count, dc(user) 
 ```
 
 </details>
 
-164. How do you search for events that do NOT contain the word 'success'?
+183. What does `stats avg(duration)` return?
 ```
-A. search NOT success
-B. search != success
-C. where success=false
-D. search success=0
+A. Average value of duration field
+B. Duration per event
+C. Longest duration
+D. Sum of duration
 ```
 <details><summary> 
 **Answer:** </summary>
 
 ```
-A. search NOT success 
+A. Average value of duration field 
 ```
 
 </details>
 
-165. Which SPL command combines all events into one per user session?
+184. What does `search error OR fail` do?
 ```
-A. transaction user
-B. dedup user
-C. top user
-D. append user
+A. Finds events with either 'error' or 'fail'
+B. Searches exact phrase
+C. Filters only error logs
+D. Fails search if error exists
 ```
 <details><summary> 
 **Answer:** </summary>
 
 ```
-A. transaction user 
+A. Finds events with either 'error' or 'fail' 
 ```
 
 </details>
 
-166. Which SPL query extracts field `user` and groups by day of week?
+185. Which SPL uses conditional evaluation to label errors?
 ```
-A. eval day=strftime(_time,"%A") | stats count by day, user
-B. eval day=dayofweek() | stats user
-C. rex _time user day
-D. timechart span=1d user
+A. eval status_type=if(status>=400, "error", "success")
+B. stats if(status>400)
+C. where status=error
+D. lookup error status
 ```
 <details><summary> 
 **Answer:** </summary>
 
 ```
-A. eval day=strftime(_time,"%A") | stats count by day, user 
+A. eval status_type=if(status>=400, "error", "success") 
 ```
 
 </details>
 
-167. Which SPL query counts events over 10 minutes per host?
+186. How to rename 'status_code' to 'http_status'?
 ```
-A. timechart span=10m count by host
-B. chart host per 10min
-C. stats count by host every 10m
-D. eventstats 10m host
+A. rename status_code AS http_status
+B. eval http_status=status_code
+C. table status_code
+D. sort http_status
 ```
 <details><summary> 
 **Answer:** </summary>
 
 ```
-A. timechart span=10m count by host 
+A. rename status_code AS http_status 
 ```
 
 </details>
 
-168. Which SPL visualizes failed logins per source IP over 6 hours?
+187. How do you limit search to the last 2 hours?
 ```
-A. index=linux_logs "Failed password" | timechart span=6h count by src_ip
-B. index=linux_logs | chart src_ip over 6h
-C. stats by user 6h
-D. timechart count by host
+A. earliest=-2h
+B. latest=2h
+C. span=2h
+D. recent=2h
 ```
 <details><summary> 
 **Answer:** </summary>
 
 ```
-A. index=linux_logs "Failed password" | timechart span=6h count by src_ip 
+A. earliest=-2h 
 ```
 
 </details>
 
-169. What is the purpose of `search source=*secure.log*`?
+188. What command extracts fields using regex?
 ```
-A. Filters logs from secure.log
-B. Renames logs
-C. Deletes secure logs
-D. Creates index
+A. rex
+B. spath
+C. eval
+D. table
 ```
 <details><summary> 
 **Answer:** </summary>
 
 ```
-A. Filters logs from secure.log 
+A. rex 
 ```
 
 </details>
 
-170. What will `stats values(status) by user` produce?
+189. What is `_raw` in Splunk?
 ```
-A. List of all status values per user
-B. Counts status
-C. Top 5 users
-D. Deduplicates status
+A. Original event data
+B. Extracted field
+C. Time format
+D. IP field
 ```
 <details><summary> 
 **Answer:** </summary>
 
 ```
-A. List of all status values per user 
+A. Original event data 
 ```
 
 </details>
 
-171. What is the effect of `chart avg(bytes) over user by _time`?
+190. Which function provides sum of bytes transferred per host?
 ```
-A. Plots average bytes per user over time
-B. Summarizes bytes
-C. Deduplicates users
-D. Counts events
+A. stats sum(bytes) by host
+B. table bytes host
+C. timechart host
+D. eval bytes=sum
 ```
 <details><summary> 
 **Answer:** </summary>
 
 ```
-A. Plots average bytes per user over time 
+A. stats sum(bytes) by host 
 ```
 
 </details>
 
-172. Which command is used to create a field from part of another field?
+191. Which visualization is ideal for trend over time?
 ```
-A. eval
-B. rex
-C. table
-D. stats
-```
-<details><summary> 
-**Answer:** </summary>
-
-```
-A. eval 
-```
-
-</details>
-
-173. Which SPL returns all HTTP 500 errors grouped by URL?
-```
-A. search status=500 | stats count by url
-B. stats by url
-C. eval status=500 | table url
-D. index=web | dedup url
-```
-<details><summary> 
-**Answer:** </summary>
-
-```
-A. search status=500 | stats count by url 
-```
-
-</details>
-
-174. Which SPL command helps remove specific fields from result?
-```
-A. fields - fieldname
-B. eval field=null
-C. dedup field
-D. sort -field
-```
-<details><summary> 
-**Answer:** </summary>
-
-```
-A. fields - fieldname 
-```
-
-</details>
-
-175. How to convert `_time` to human-readable format?
-```
-A. eval readable_time=strftime(_time,"%Y-%m-%d %H:%M:%S")
-B. table _time as readable
-C. eval _time=convert()
-D. convert _time to text
-```
-<details><summary> 
-**Answer:** </summary>
-
-```
-A. eval readable_time=strftime(_time,"%Y-%m-%d %H:%M:%S") 
-```
-
-</details>
-
-176. How to get the maximum `duration` by host?
-```
-A. stats max(duration) by host
-B. chart duration host
-C. table host duration
-D. eval duration=max
-```
-<details><summary> 
-**Answer:** </summary>
-
-```
-A. stats max(duration) by host 
-```
-
-</details>
-
-177. Which SPL command returns a list of distinct users?
-```
-A. stats dc(user)
-B. table user
-C. top user
-D. values(user)
-```
-<details><summary> 
-**Answer:** </summary>
-
-```
-D. values(user) 
-```
-
-</details>
-
-178. How to view field names available in events?
-```
-A. fields
-B. table
-C. rex
-D. list
-```
-<details><summary> 
-**Answer:** </summary>
-
-```
-A. fields 
-```
-
-</details>
-
-179. Which visualization best shows user activity count grouped by department?
-```
-A. Bar Chart
+A. Line Chart
 B. Pie Chart
-C. Line Chart
+C. Gauge
 D. Single Value
 ```
 <details><summary> 
 **Answer:** </summary>
 
 ```
-A. Bar Chart 
+A. Line Chart 
 ```
 
 </details>
 
-180. Which SPL query summarizes login attempts per hour, per user?
+192. How to track unique users logging in per day?
 ```
-A. timechart span=1h count by user
-B. chart login user per hour
-C. stats user hourly
-D. dedup user by hour
+A. timechart span=1d dc(user)
+B. chart user daily
+C. dedup user | head
+D. table user by date
 ```
 <details><summary> 
 **Answer:** </summary>
 
 ```
-A. timechart span=1h count by user 
+A. timechart span=1d dc(user) 
 ```
 
 </details>
 
+193. What command helps enrich data with usernames from a CSV?
+```
+A. lookup
+B. join
+C. eval
+D. outputlookup
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. lookup 
+```
+
+</details>
+
+194. How to highlight failed login attempts from logs?
+```
+A. search "Failed password"
+B. stats by login
+C. rex user fail
+D. fillnull fail
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. search "Failed password" 
+```
+
+</details>
+
+195. What is the function of `dc()` in SPL?
+```
+A. Counts distinct values
+B. Deletes duplicates
+C. Displays chart
+D. Extracts time
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Counts distinct values 
+```
+
+</details>
+
+196. What does `sort - count` imply?
+```
+A. Descending order by count
+B. Group by count
+C. Null sort
+D. Show most recent only
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Descending order by count 
+```
+
+</details>
+
+197. What is a benefit of `eventstats` over `stats`?
+```
+A. Preserves original events
+B. Faster search
+C. Used only in dashboards
+D. Deduplicates results
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Preserves original events 
+```
+
+</details>
+
+198. Which SPL returns top 3 error messages?
+```
+A. search error | top limit=3 _raw
+B. table error | head 3
+C. dedup error | tail 3
+D. stats top error
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. search error | top limit=3 _raw 
+```
+
+</details>
+
+199. How to calculate login percentage per department?
+```
+A. stats count by department | eventstats sum(count) as total | eval percent=(count/total)*100
+B. top department login
+C. table department login
+D. eval percent=login
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. stats count by department | eventstats sum(count) as total | eval percent=(count/total)*100 
+```
+
+</details>
+
+200. Which SPL command writes current search result to a lookup file?
+```
+A. outputlookup
+B. inputlookup
+C. lookup
+D. fillnull
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. outputlookup 
+```
+
+</details>
