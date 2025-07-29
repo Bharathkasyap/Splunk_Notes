@@ -638,3 +638,323 @@ C. Indexed Field
 
 </details>
 
+41. Which command is best for evaluating conditional values in a field?
+```
+A. eval
+B. stats
+C. dedup
+D. rex
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. eval 
+```
+
+</details>
+
+42. Which visualization displays a breakdown of categories as slices?
+```
+A. Bar Chart
+B. Line Chart
+C. Pie Chart
+D. Single Value
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Pie Chart 
+```
+
+</details>
+
+43. What is the correct SPL command to limit the search to last 24 hours?
+```
+A. latest=-24h
+B. earliest=-24h
+C. time=24h
+D. set_time=24h
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. earliest=-24h 
+```
+
+</details>
+
+44. Which field stores the source file path of an event?
+```
+A. host
+B. source
+C. sourcetype
+D. _raw
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. source 
+```
+
+</details>
+
+45. Which field tells you what format the data is in?
+```
+A. sourcetype
+B. source
+C. host
+D. index
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. sourcetype 
+```
+
+</details>
+
+46. What type of search is triggered as soon as the condition is met?
+```
+A. Scheduled Search
+B. Real-time Alert
+C. Historical Alert
+D. Conditional Lookup
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Real-time Alert 
+```
+
+</details>
+
+47. Which function is used to list distinct field values?
+```
+A. sum()
+B. dc()
+C. avg()
+D. values()
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+D. values() 
+```
+
+</details>
+
+48. Which object helps group similar events under a single name?
+```
+A. Alert
+B. Report
+C. Event Type
+D. Tag
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Event Type 
+```
+
+</details>
+
+49. What is the use of `fillnull` command?
+```
+A. Deletes NULLs
+B. Fills NULL fields with default
+C. Creates NULL fields
+D. Sorts missing values
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Fills NULL fields with default 
+```
+
+</details>
+
+50. Which Splunk component forwards data to the indexer?
+```
+A. Deployment Server
+B. Universal Forwarder
+C. Search Head
+D. Heavy Forwarder
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. Universal Forwarder 
+```
+
+</details>
+
+51. Which command helps visualize data over time with different field values?
+```
+A. table
+B. timechart
+C. dedup
+D. rex
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. timechart 
+```
+
+</details>
+
+52. Which lookup command is used to update or add to a CSV file?
+```
+A. lookup
+B. inputlookup
+C. outputlookup
+D. dc()
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. outputlookup 
+```
+
+</details>
+
+53. What is the difference between `stats` and `chart`?
+```
+A. chart requires over/by and stats doesn’t
+B. stats is only for tables
+C. chart supports rex
+D. stats needs JSON
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. chart requires over/by and stats doesn’t 
+```
+
+</details>
+
+54. Which field indicates which machine generated the log?
+```
+A. source
+B. host
+C. index
+D. type
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+B. host 
+```
+
+</details>
+
+55. Which command would you use to hide certain fields from output?
+```
+A. fields -
+B. remove
+C. table
+D. dedup
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. fields - 
+```
+
+</details>
+
+56. Which mode should you use to find new fields during log exploration?
+```
+A. Fast
+B. Smart
+C. Verbose
+D. Minimal
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Verbose 
+```
+
+</details>
+
+57. Which object is best used for scheduled emailing of search results?
+```
+A. Report
+B. Dashboard
+C. Transaction
+D. Join
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. Report 
+```
+
+</details>
+
+58. How do you limit results to only 5 rows per unique user?
+```
+A. dedup 5 user
+B. table user | head 5
+C. sort user | head 5
+D. dedup user
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. dedup 5 user 
+```
+
+</details>
+
+59. Which command allows conditional transformation of data?
+```
+A. case
+B. stats
+C. rex
+D. search
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+A. case 
+```
+
+</details>
+
+60. What action does the `table` command perform?
+```
+A. Removes NULLs
+B. Filters fields
+C. Displays selected fields in column format
+D. Creates time bins
+```
+<details><summary> 
+**Answer:** </summary>
+
+```
+C. Displays selected fields in column format 
+```
+
+</details>
+
