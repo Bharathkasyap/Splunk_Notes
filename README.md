@@ -735,5 +735,9 @@ Recommended Practice:
 ```
 </details>
 
+
+---
+
+
 ✅ **Prepared for certification + real-world analyst usage**  
 📝 Includes: Search commands, Dashboards, Alerts, Knowledge objects  
