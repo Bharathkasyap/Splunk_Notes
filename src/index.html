@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Splunk Power User Practice Exams</title>
   <style>
     body {
-      background-color: #1e1e1e;
+      background-color: #121212;
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
-      padding-top: 50px;
+      padding: 50px;
     }
-
     h1 {
-      font-size: 36px;
+      font-size: 2rem;
       margin-bottom: 40px;
     }
-
-    .button {
-      display: inline-block;
-      background-color: #4682B4;
-      color: white;
-      padding: 15px 30px;
-      margin: 20px;
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 400px;
+      margin: auto;
+    }
+    .exam-button {
+      padding: 15px;
+      font-size: 18px;
+      background-color: #4db8ff;
+      color: black;
+      border: none;
       border-radius: 8px;
       text-decoration: none;
-      font-size: 20px;
-      transition: background-color 0.3s ease;
+      font-weight: bold;
     }
-
-    .button:hover {
-      background-color: #5ba0d6;
+    .exam-button:hover {
+      background-color: #66cfff;
     }
   </style>
 </head>
 <body>
-
   <h1>Splunk Power User Practice Exams</h1>
-
-  <a href="Splunk_MCQ_Interactive_100.html" class="button">Practice Set 1 (1–100)</a><br>
-  <a href="Splunk_MCQ_Interactive_101_200.html" class="button">Practice Set 2 (101–200)</a><br>
-  <a href="Splunk_MCQ_Interactive_201_300.html" class="button">Practice Set 3 (201–300)</a>
-
+  <div class="button-container">
+    <a href="Splunk_Dark_Exam_1_100.html" class="exam-button">Practice Set 1 (1–100)</a>
+    <a href="Splunk_Dark_Exam_101_200.html" class="exam-button">Practice Set 2 (101–200)</a>
+    <a href="Splunk_Dark_Exam_201_300.html" class="exam-button">Practice Set 3 (201–300)</a>
+  </div>
 </body>
 </html>
