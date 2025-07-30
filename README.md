@@ -1086,9 +1086,12 @@ search1 | append [search2]
 
 ---
 
-- **[Practice Questions (Set 1)](https://github.com/Bharathkasyap/Splunk_Notes/blob/main/src/Splunk_MCQ.md)**                      **[Exam Mode (Set1)](https://bharathkasyap.github.io/Splunk_Notes/Splunk_MCQ_Interactive_100.html)**
+- **[Practice Questions (Set 1)](https://github.com/Bharathkasyap/Splunk_Notes/blob/main/src/Splunk_MCQ.md)**
+- **[Exam Mode (Set1)](https://bharathkasyap.github.io/Splunk_Notes/Splunk_MCQ_Interactive_100.html)**
 - **[Practice Questions (Set 2)](https://github.com/Bharathkasyap/Splunk_Notes/blob/main/src/Splunk_MCQ_Set2.md)**
+- **[Exam Mode (Set1)](https://bharathkasyap.github.io/Splunk_Notes/Splunk_MCQ_Interactive_101_200.html)**
 - **[Practice Questions (Set 3)](https://github.com/Bharathkasyap/Splunk_Notes/blob/main/srcSplunk_MCQ_Set3.md)**
+- **[Exam Mode (Set1)](https://bharathkasyap.github.io/Splunk_Notes/Splunk_MCQ_Interactive_201_300.html)**
 
 ✅ **Prepared for certification + real-world analyst usage**  
 📝 Includes: Search commands, Dashboards, Alerts, Knowledge objects  
