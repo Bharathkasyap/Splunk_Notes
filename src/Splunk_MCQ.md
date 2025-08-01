@@ -961,6 +961,7 @@ C. Displays selected fields in column format
 
 </details>
 61. What does the `dc()` function do in Splunk?
+
 ```
 A. Deletes content
 B. Displays count
